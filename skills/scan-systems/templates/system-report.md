@@ -10,7 +10,7 @@ textos <entre sinais> ao preencher. Links relativos à pasta docs/systems/
 - Repositório: <URL do remoto, ou "sem remoto">
 - Commit analisado: <hash curto> · data da varredura: <AAAA-MM-DD de hoje>
 - Gerado por: scan-systems, varredura <paralela | sequencial>
-- Cartilha de referência: [seção 3](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/README.md#3-antes-de-pedir-ambiente-checklist-do-repositório)
+- Cartilha de referência: [seção 4](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/README.md#4-antes-de-pedir-ambiente-checklist-do-repositório)
 
 ## Resumo para a infraestrutura
 
@@ -22,29 +22,30 @@ textos <entre sinais> ao preencher. Links relativos à pasta docs/systems/
 - Tarefas agendadas: <nenhuma | em processo: ... | agendador externo: <qual/onde, ou "a confirmar com o dev"> chamando <rota>>
 - Sinais para dimensionamento: <cold start sensível? WebSocket? processamento longo? cron em processo?>
 
-## 1. Prontidão para o GCP (seção 3 da cartilha)
+## 1. Prontidão para o GCP (seção 4 da cartilha)
 
 | Item | Veredito | Evidência | Observação |
 |---|---|---|---|
-| 3.1 Repositório na org Complexo-Industrial-Suape | | | |
-| 3.1 Nome em kebab-case | | | |
-| 3.1 Branches existentes (informativo, nunca pendente) | não se aplica | | <ex.: main, dev, hml> |
-| 3.1 Nenhum segredo commitado | | | |
-| 3.1 .env.example com todos os nomes e sem valores reais | | | <placeholder genérico ok; e-mail, URL de produção ou ID de projeto real = pendente> |
-| 3.1 suape-brand fora do git (nem submódulo, nem commitado) | | | |
-| 3.2 Dockerfile em cada parte publicável | | | |
-| 3.2 Estrutura web/ api/ docs/ infra/ (front e back no mesmo repo, mesmo em container único) | | | <pendente não bloqueante se fora do padrão> |
-| 3.2 Porta via variável PORT | | | |
-| 3.2 Configuração só por variáveis de ambiente | | | |
-| 3.2 Health 200: /health ou o par /livez + /readyz (/healthz não serve) | | | |
-| 3.2 Sem dependência de outro provedor de nuvem | | | <provedores procurados e resultado> |
-| 3.2 Testes rodam com um comando | | | |
-| 3.2 Sem CVE alta ou crítica nas dependências | | | <bloqueante se houver> |
-| 3.3 Documentação obrigatória completa (ver tabela abaixo) | | | <bloqueante se algo ficar ausente ou incompleto> |
-| 3.3 README, badges e diagramas sem pipeline inexistente | | | <desatualizado: não bloqueante> |
-| 3.3 .env.example coerente com o código | | | <desatualizado: não bloqueante> |
+| 4.1 Repositório na org Complexo-Industrial-Suape | | | |
+| 4.1 Nome em kebab-case | | | |
+| 4.1 Branches existentes (informativo, nunca pendente) | não se aplica | | <ex.: main, dev, hml> |
+| 4.1 Nenhum segredo commitado | | | |
+| 4.1 .env.example com todos os nomes e sem valores reais | | | <placeholder genérico ok; e-mail, URL de produção ou ID de projeto real = pendente> |
+| 4.1 suape-brand fora do git (nem submódulo, nem commitado) | | | |
+| 4.2 Stack padrão (Python 3.14 + Flask/FastAPI/Django; React + Vite) ou exceção justificada | | | <informativo: fora do padrão não bloqueia, mas precisa de justificativa no chamado> |
+| 4.2 Dockerfile em cada parte publicável | | | |
+| 4.2 Estrutura web/ api/ docs/ infra/ (front e back no mesmo repo, mesmo em container único) | | | <pendente não bloqueante se fora do padrão> |
+| 4.2 Porta via variável PORT | | | |
+| 4.2 Configuração só por variáveis de ambiente | | | |
+| 4.2 Health 200: /health ou o par /livez + /readyz (/healthz não serve) | | | |
+| 4.2 Sem dependência de outro provedor de nuvem | | | <provedores procurados e resultado> |
+| 4.2 Testes rodam com um comando | | | |
+| 4.2 Sem CVE alta ou crítica nas dependências | | | <bloqueante se houver> |
+| 4.3 Documentação obrigatória completa (ver tabela abaixo) | | | <bloqueante se algo ficar ausente ou incompleto> |
+| 4.3 README, badges e diagramas sem pipeline inexistente | | | <desatualizado: não bloqueante> |
+| 4.3 .env.example coerente com o código | | | <desatualizado: não bloqueante> |
 
-### Documentação obrigatória (seção 3.3)
+### Documentação obrigatória (seção 4.3)
 
 | Item | Antes desta varredura | Depois | Bloqueia? |
 |---|---|---|---|
@@ -172,4 +173,4 @@ Rotas sem autenticação ou chamadas por sistema externo (webhook, Cloud Schedul
 | # | Título da issue | Bloqueia? | Item da cartilha | Arquivo |
 |---|---|---|---|---|
 
-<!-- Título no imperativo: "Remover binding D1 do vite.config.ts e usar Cloud SQL". Bloqueia = sim só para: CVE alta/crítica (ou "a confirmar"), uso real de outro provedor, segredo commitado (código ou histórico), parte sem Dockerfile, segredo com valor padrão inseguro no código, documentação obrigatória da 3.3 ausente ou incompleta ao final. O resto: não, inclusive documentação desatualizada. -->
+<!-- Título no imperativo: "Remover binding D1 do vite.config.ts e usar Cloud SQL". Bloqueia = sim só para: CVE alta/crítica (ou "a confirmar"), uso real de outro provedor, segredo commitado (código ou histórico), parte sem Dockerfile, segredo com valor padrão inseguro no código, documentação obrigatória da 4.3 ausente ou incompleta ao final. O resto: não, inclusive documentação desatualizada. -->

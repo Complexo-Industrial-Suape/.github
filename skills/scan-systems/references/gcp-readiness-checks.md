@@ -1,10 +1,10 @@
 # Verificações de prontidão para o GCP
 
-Itens da seção 3 da cartilha de Suape (versão 2.2), com o que procurar e o que conta como evidência. Use `grep -rn` excluindo `node_modules`, `.venv`, `dist`, `build`, `.git` e `suape-brand` (exceto onde indicado). Na falta de `grep`/`rg`, use a ferramenta de busca do runtime.
+Itens da seção 4 da cartilha de Suape (versão 2.2), com o que procurar e o que conta como evidência. Use `grep -rn` excluindo `node_modules`, `.venv`, `dist`, `build`, `.git` e `suape-brand` (exceto onde indicado). Na falta de `grep`/`rg`, use a ferramenta de busca do runtime.
 
 Valores do veredito, sempre um destes: `atendido`, `pendente`, `não se aplica`, `não verificado`. "Não se aplica" exige motivo (ex.: `/health` em parte que é só frontend estático).
 
-## 3.1 Repositório
+## 4.1 Repositório
 
 | Item | Como verificar | Pendente quando |
 |---|---|---|
@@ -23,7 +23,7 @@ Valores do veredito, sempre um destes: `atendido`, `pendente`, `não se aplica`,
 3. Presente mas ignorado: pasta existe e `git check-ignore suape-brand` retorna o caminho = atendido.
 4. Ausente: atendido se os assets usados estão numa pasta do projeto (ex.: `web/public/brand/`).
 
-## 3.2 Pronto para o GCP
+## 4.2 Pronto para o GCP
 
 | Item | Como verificar | Pendente quando |
 |---|---|---|
@@ -36,7 +36,7 @@ Valores do veredito, sempre um destes: `atendido`, `pendente`, `não se aplica`,
 | Testes com um comando | `scripts.test` no `package.json`, `pytest` no `pyproject`, CI | sem comando, ou `"test": "echo \"Error: no test specified\""` |
 | Sem CVE alta ou crítica | `pip-audit`, `npm audit --omit=dev --json` (fallbacks abaixo) | alta/crítica: pendente **bloqueante**. Média/baixa: pendente não bloqueante. Ferramenta indisponível: `não verificado` |
 
-## 3.3 Documentação obrigatória
+## 4.3 Documentação obrigatória
 
 Ausente ou incompleta ao final da varredura = pendente **bloqueante**. Registre o estado antes e depois desta execução: o relatório e o catálogo que esta skill gera saem como "ausente antes desta varredura; gerado".
 
@@ -51,7 +51,7 @@ Não bloqueante (desatualizada): README, badge ou diagrama citando pipeline inex
 
 ## Os seis bloqueantes
 
-Só estes mudam o veredito para "não pronto": (1) CVE alta/crítica ou "a confirmar"; (2) uso real de outro provedor de nuvem; (3) segredo commitado no código ou no histórico; (4) parte publicável sem Dockerfile; (5) segredo com valor padrão inseguro no código; (6) documentação obrigatória da 3.3 ausente ou incompleta ao final. Todo o resto é pendência não bloqueante. Os dois tipos viram issue.
+Só estes mudam o veredito para "não pronto": (1) CVE alta/crítica ou "a confirmar"; (2) uso real de outro provedor de nuvem; (3) segredo commitado no código ou no histórico; (4) parte publicável sem Dockerfile; (5) segredo com valor padrão inseguro no código; (6) documentação obrigatória da 4.3 ausente ou incompleta ao final. Todo o resto é pendência não bloqueante. Os dois tipos viram issue.
 
 ### Detecção de outro provedor de nuvem
 

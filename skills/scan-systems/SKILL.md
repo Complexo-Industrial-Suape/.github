@@ -4,7 +4,7 @@ description: >-
   Gera o relatório Scan Systems exigido pela CTIC de Suape para provisionar
   ambiente no GCP (Cloud Run, Cloud SQL, Secret Manager, Cloud Build):
   docs/systems/<repositorio>.md e docs/SYSTEMS_CATALOG.md, com veredito item a
-  item da seção 3 da cartilha (evidência arquivo:linha), partes publicáveis,
+  item da seção 4 da cartilha (evidência arquivo:linha), partes publicáveis,
   variáveis de ambiente e segredos só por nome (build x runtime), banco,
   armazenamento, cron, integrações, rotas, testes, segurança e pendências que
   viram issues. Documentação obrigatória ausente ou incompleta bloqueia.
@@ -24,7 +24,7 @@ Você vai produzir, no repositório atual, os dois arquivos que o responsável p
 
 Pense como o inspetor, não como o autor do projeto. A pergunta em cada seção é: "a infra consegue agir com isto sem abrir o código?". Se a resposta depende de adivinhar, falta evidência ou falta uma pendência.
 
-A régua é a seção 3 da cartilha: https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/README.md . Se tiver acesso à web, leia a versão atual; se não, use os itens resumidos em [references/gcp-readiness-checks.md](references/gcp-readiness-checks.md), que reproduz a versão 2.2.
+A régua é a seção 4 da cartilha: https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/README.md . Se tiver acesso à web, leia a versão atual; se não, use os itens resumidos em [references/gcp-readiness-checks.md](references/gcp-readiness-checks.md), que reproduz a versão 2.2.
 
 ## O que um modelo genérico erra aqui
 
@@ -53,7 +53,7 @@ Estes casos já aconteceram em Suape. Cada um passou por um relatório "bonito" 
 
 ### 1. Reconhecimento (você, antes de delegar)
 
-1. Nome do repositório: `git remote get-url origin`; sem remoto, o nome da pasta raiz. Use esse nome no arquivo. Se não estiver em kebab-case, registre pendência de nome (item 3.1), mas não renomeie o arquivo para "corrigir".
+1. Nome do repositório: `git remote get-url origin`; sem remoto, o nome da pasta raiz. Use esse nome no arquivo. Se não estiver em kebab-case, registre pendência de nome (item 4.1), mas não renomeie o arquivo para "corrigir".
 2. Partes publicáveis: procure `Dockerfile*`, `package.json`, `pyproject.toml`, `requirements*.txt`, `go.mod`, `pom.xml` até 3 níveis, ignorando `node_modules`, `.venv`, `dist`, `build`, `suape-brand`. Uma parte publicável é o que vira um serviço ou job no Cloud Run: `web/`, `api/`, um worker. Pacote compartilhado (`packages/shared`) não é parte: documente dentro de quem o usa.
 3. Leia o README e o que existir em `docs/` só para saber o que o projeto **alega**. Guarde as alegações para confrontar depois.
 
@@ -63,12 +63,12 @@ Decisão do formato:
 |---|---|
 | Uma parte (repo só API ou só web) | Um relatório, sem subagentes. |
 | `web/` + `api/` (o caso comum) ou mais partes | Um subagente por parte, em paralelo, se o runtime oferecer. |
-| Front e back no mesmo repo fora de `web/` + `api/` (ex.: backend na raiz + `frontend/`) | Varra como está, inclusive se for um container só. Registre pendência de estrutura (3.2), **não bloqueante**. A regra vale mesmo com uma imagem única: um Dockerfile copia `web/` e `api/`. |
+| Front e back no mesmo repo fora de `web/` + `api/` (ex.: backend na raiz + `frontend/`) | Varra como está, inclusive se for um container só. Registre pendência de estrutura (4.2), **não bloqueante**. A regra vale mesmo com uma imagem única: um Dockerfile copia `web/` e `api/`. |
 | Nenhum manifesto reconhecível | Pare e diga ao dev o que encontrou; não gere relatório vazio. |
 
 ### 2. Varredura por parte
 
-**MANDATORY**: antes de varrer, leia inteiro [references/gcp-readiness-checks.md](references/gcp-readiness-checks.md). Ele tem os padrões de busca de cada item da seção 3, a detecção de outros provedores e de `suape-brand`, e os fallbacks quando uma ferramenta não existe.
+**MANDATORY**: antes de varrer, leia inteiro [references/gcp-readiness-checks.md](references/gcp-readiness-checks.md). Ele tem os padrões de busca de cada item da seção 4, a detecção de outros provedores e de `suape-brand`, e os fallbacks quando uma ferramenta não existe.
 
 Com subagentes (Claude Code: ferramenta Agent/Task; Antigravity: subagente do AGY), dispare todos juntos, um por parte. **MANDATORY**: monte cada prompt a partir de [references/subagent-brief.md](references/subagent-brief.md), trocando só o nome e a pasta da parte. O subagente devolve texto no formato das seções do template; ele não grava arquivo. Só você escreve em `docs/`, para não haver dois agentes editando o mesmo relatório.
 
@@ -76,7 +76,7 @@ Sem subagentes, faça a mesma rotina parte por parte e anote no relatório "varr
 
 A rotina, por parte:
 
-1. Prontidão GCP: cada item da seção 3 aplicável à parte, com evidência.
+1. Prontidão GCP: cada item da seção 4 aplicável à parte, com evidência.
 2. Publicação: Dockerfile, porta, comando de start, health, usuário do container.
 3. Variáveis: toda leitura de ambiente no código e nos arquivos de config, classificada em build ou runtime.
 4. Dados: banco e driver, migrations e como rodam, armazenamento de arquivos, uso de disco local.
@@ -91,8 +91,8 @@ A rotina, por parte:
 - Confronte as alegações do passo 1 com a varredura. Toda divergência que afete deploy (plataforma, banco, porta, auth) vira pendência. Dois casos comuns que passam despercebidos:
   - README, badge ou diagrama citando pipeline que não existe mais (ex.: badge de `.github/workflows/deploy.yml` depois que o deploy foi para o Cloud Build). Confira com `ls .github/workflows` e `test -e cloudbuild.yaml`.
   - `.env.example` prometendo comportamento que o código não tem (ex.: "sem DATABASE_URL usa SQLite" quando o código exige Postgres). Confira cada comentário do `.env.example` contra o código que lê a variável.
-  Os dois são documentação **desatualizada**: pendência (3.3) **não bloqueante**.
-- Documentação **ausente ou incompleta** é outra coisa e **bloqueia**. Registre o estado de cada item obrigatório da 3.3 **antes** desta varredura e **depois** dela:
+  Os dois são documentação **desatualizada**: pendência (4.3) **não bloqueante**.
+- Documentação **ausente ou incompleta** é outra coisa e **bloqueia**. Registre o estado de cada item obrigatório da 4.3 **antes** desta varredura e **depois** dela:
 
   | Item obrigatório | Incompleto quando |
   |---|---|
@@ -111,7 +111,7 @@ A rotina, por parte:
 
 **MANDATORY**: leia [templates/systems-catalog.md](templates/systems-catalog.md) e crie ou atualize `docs/SYSTEMS_CATALOG.md`. Se ele já existir com outras linhas, atualize só a linha deste repositório.
 
-Pendências: cada item "pendente" da seção 3 e cada CVE (qualquer severidade) vira uma linha na seção de pendências, escrita como título de issue (verbo no imperativo, arquivo, o que fazer). Coluna "Bloqueia?" = **sim** só para: CVE alta/crítica (ou "a confirmar"); uso real de outro provedor; segredo commitado (código ou histórico); parte sem Dockerfile; segredo com valor padrão inseguro no código (ex.: `os.environ.get("SECRET_KEY", "dev-...")`, que deixa a aplicação subir em produção com uma chave conhecida); documentação obrigatória da 3.3 ausente ou incompleta ao final da varredura (passo 3). Todo o resto: **não**, inclusive documentação desatualizada. Bloqueantes e não bloqueantes viram issue; a infra copia as linhas para o seu repositório.
+Pendências: cada item "pendente" da seção 4 e cada CVE (qualquer severidade) vira uma linha na seção de pendências, escrita como título de issue (verbo no imperativo, arquivo, o que fazer). Coluna "Bloqueia?" = **sim** só para: CVE alta/crítica (ou "a confirmar"); uso real de outro provedor; segredo commitado (código ou histórico); parte sem Dockerfile; segredo com valor padrão inseguro no código (ex.: `os.environ.get("SECRET_KEY", "dev-...")`, que deixa a aplicação subir em produção com uma chave conhecida); documentação obrigatória da 4.3 ausente ou incompleta ao final da varredura (passo 3). Todo o resto: **não**, inclusive documentação desatualizada. Bloqueantes e não bloqueantes viram issue; a infra copia as linhas para o seu repositório.
 
 Revise o texto: frases curtas, sem adjetivo de propaganda, sem "robusto"/"escalável"/"moderno" sem número. Não reescreva tabelas nem valores do veredito nessa revisão.
 

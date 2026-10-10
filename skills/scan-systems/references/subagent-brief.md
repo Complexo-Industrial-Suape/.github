@@ -9,7 +9,7 @@ Escopo: só <PASTA> e os arquivos da raiz que afetam esta parte (docker-compose,
 
 Para cada item abaixo, traga evidência como caminho relativo à raiz do repositório e linha (ex.: api/src/main.py:42). Sem evidência, escreva "nenhum encontrado" e a busca que fez. Se uma ferramenta não existir (pip-audit, npm, docker, rede), escreva "não verificado: <motivo>"; nunca afirme o que não executou.
 
-1. Veredito de cada item aplicável das seções 3.1 e 3.2 da cartilha (atendido, pendente, não se aplica, não verificado), incluindo detecção de outro provedor de nuvem e de suape-brand.
+1. Veredito de cada item aplicável das seções 4.1 e 4.2 da cartilha (atendido, pendente, não se aplica, não verificado), incluindo detecção de outro provedor de nuvem e de suape-brand.
 2. Publicação: Dockerfile, imagem base, porta e se lê PORT, comando de start, rota de health, USER do container.
 3. Variáveis de ambiente: nome, arquivo:linha onde é lida, build ou runtime (VITE_*, NEXT_PUBLIC_*, REACT_APP_*, PUBLIC_* são build), se é segredo. NUNCA escreva valores, nem parciais.
 4. Dados: banco e driver, migrations (ferramenta, pasta, como e quando rodam), armazenamento de arquivos, escrita em disco local.
