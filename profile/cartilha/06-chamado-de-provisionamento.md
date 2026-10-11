@@ -54,6 +54,7 @@ Assunto: Provisionamento de ambiente GCP - <nome-do-repositório>
    ( ) Dockerizado, configuração por variáveis de ambiente, endpoint de saúde
    ( ) Sem vulnerabilidade alta ou crítica nas dependências
    ( ) Sem dependência de outro provedor de nuvem
+   ( ) Identidade Visual: splash screen integrada, logos da CCOM e sem submódulo (ver documento 09)
    ( ) Documentação C4 e Scan Systems no repositório
 ```
 

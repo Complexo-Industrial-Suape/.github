@@ -93,7 +93,7 @@ A regra de ouro da CTIC é: **segredo em repositório é incidente de segurança
 
 ## 5. Integração com a Marca Suape (`suape-brand`)
 
-O repositório [suape-brand](https://github.com/Complexo-Industrial-Suape/suape-brand) concentra os logotipos, paletas de cores, fontes oficiais e diretrizes visuais do Complexo.
+O repositório [suape-brand](https://github.com/Complexo-Industrial-Suape/suape-brand) concentra os logotipos, paletas de cores, fontes oficiais e diretrizes visuais do Complexo. As regras completas da CCOM e o uso da splash screen obrigatória estão detalhados em [Marca e Identidade Visual](09-marca-e-identidade-visual.md).
 
 * **Copie apenas o que usar:** Selecione os arquivos de imagem, ícones ou fontes necessários e copie-os para a pasta estática do seu frontend (ex.: `web/public/brand/`).
 * **NUNCA use Git Submodule:** O uso de submódulo quebra o deploy automático no Cloud Build e dificulta o clone local.
@@ -130,5 +130,5 @@ Antes de solicitar ambiente, confirme:
 - [ ] Commits assinados com SSH e exibindo selo **Verified** no GitHub.
 - [ ] Nenhum arquivo `.env` ou credencial real rastreada pelo Git.
 - [ ] Arquivo `.env.example` documentando todas as variáveis necessárias.
-- [ ] Pasta `suape-brand/` ignorada no `.gitignore` e assets incorporados localmente.
+- [ ] Pasta `suape-brand/` ignorada no `.gitignore` e assets incorporados localmente (ver [Marca e Identidade Visual](09-marca-e-identidade-visual.md)).
 - [ ] Estrutura de pastas respeitando monorepo (`web/`, `api/`, `docs/`) quando aplicável.

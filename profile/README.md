@@ -64,6 +64,12 @@ O desenvolvedor cuida do projeto e da documentação. A infraestrutura cuida do 
 
 [Ler: quem faz o quê e as etapas de um projeto novo](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/08-papeis-e-caminho-do-projeto.md)
 
+### 9. Marca e identidade visual (Suape Brand Kit)
+
+Todo sistema desenvolvido por Suape usa obrigatoriamente a splash screen oficial na abertura e logotipos vetorizados conforme as diretrizes da CCOM (Coordenadoria de Comunicação). Proibido Git Submodule e cópia integral do kit.
+
+[Ler: diretrizes da CCOM, splash screen obrigatória e integração](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/09-marca-e-identidade-visual.md)
+
 ---
 
 ## Consulta rápida
@@ -71,6 +77,7 @@ O desenvolvedor cuida do projeto e da documentação. A infraestrutura cuida do 
 - Commits assinados com chave SSH, selo **Verified** no GitHub.
 - Stack obrigatória: Python 3.14 (FastAPI/Flask/Django), React (Vite/Astro), bancos leves (PostgreSQL/MongoDB). Código otimizado para economizar recursos públicos.
 - Repositório em kebab-case, na org, sem segredo.
+- Splash screen oficial obrigatória em todos os sistemas e logos da CCOM.
 - Sem documentação, sem ambiente.
 - `feature/*` → `dev` → `hml` → `main`, sempre por PR.
 - Nunca: push direto em `main`, segredo no código, deploy manual, alteração no `cloudbuild.yaml`.
