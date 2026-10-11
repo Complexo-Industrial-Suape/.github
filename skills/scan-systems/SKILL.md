@@ -24,7 +24,7 @@ Você vai produzir, no repositório atual, os dois arquivos que o responsável p
 
 Pense como o inspetor, não como o autor do projeto. A pergunta em cada seção é: "a infra consegue agir com isto sem abrir o código?". Se a resposta depende de adivinhar, falta evidência ou falta uma pendência.
 
-A régua é a seção 4 da cartilha: https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/README.md . Se tiver acesso à web, leia a versão atual; se não, use os itens resumidos em [references/gcp-readiness-checks.md](references/gcp-readiness-checks.md), que reproduz a versão 2.2.
+A régua são os três documentos de checklist da cartilha: [Repositório (4.1)](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/03-repositorio.md), [Pronto para o GCP (4.2)](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/04-pronto-para-o-gcp.md) e [Documentação (4.3)](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/05-documentacao.md). A numeração 4.1, 4.2 e 4.3 vem da cartilha 2.x e continua sendo usada nesta skill. Se tiver acesso à web, leia a versão atual; se não, use os itens resumidos em [references/gcp-readiness-checks.md](references/gcp-readiness-checks.md), que reproduz a versão 2.2.
 
 ## O que um modelo genérico erra aqui
 

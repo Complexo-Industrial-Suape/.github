@@ -1,6 +1,6 @@
 # Verificações de prontidão para o GCP
 
-Itens da seção 4 da cartilha de Suape (versão 2.2), com o que procurar e o que conta como evidência. Use `grep -rn` excluindo `node_modules`, `.venv`, `dist`, `build`, `.git` e `suape-brand` (exceto onde indicado). Na falta de `grep`/`rg`, use a ferramenta de busca do runtime.
+Itens 4.1 (Repositório), 4.2 (Pronto para o GCP) e 4.3 (Documentação) da cartilha de Suape (versão 2.2). Na cartilha 3.0 cada um é um documento próprio em `profile/cartilha/`, com o que procurar e o que conta como evidência. Use `grep -rn` excluindo `node_modules`, `.venv`, `dist`, `build`, `.git` e `suape-brand` (exceto onde indicado). Na falta de `grep`/`rg`, use a ferramenta de busca do runtime.
 
 Valores do veredito, sempre um destes: `atendido`, `pendente`, `não se aplica`, `não verificado`. "Não se aplica" exige motivo (ex.: `/health` em parte que é só frontend estático).
 

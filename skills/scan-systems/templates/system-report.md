@@ -10,7 +10,7 @@ textos <entre sinais> ao preencher. Links relativos à pasta docs/systems/
 - Repositório: <URL do remoto, ou "sem remoto">
 - Commit analisado: <hash curto> · data da varredura: <AAAA-MM-DD de hoje>
 - Gerado por: scan-systems, varredura <paralela | sequencial>
-- Cartilha de referência: [seção 4](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/README.md#4-antes-de-pedir-ambiente-checklist-do-repositório)
+- Cartilha de referência: [Repositório](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/03-repositorio.md), [Pronto para o GCP](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/04-pronto-para-o-gcp.md) e [Documentação](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/05-documentacao.md)
 
 ## Resumo para a infraestrutura
 
@@ -22,7 +22,7 @@ textos <entre sinais> ao preencher. Links relativos à pasta docs/systems/
 - Tarefas agendadas: <nenhuma | em processo: ... | agendador externo: <qual/onde, ou "a confirmar com o dev"> chamando <rota>>
 - Sinais para dimensionamento: <cold start sensível? WebSocket? processamento longo? cron em processo?>
 
-## 1. Prontidão para o GCP (seção 4 da cartilha)
+## 1. Prontidão para o GCP (itens 4.1, 4.2 e 4.3 da cartilha)
 
 | Item | Veredito | Evidência | Observação |
 |---|---|---|---|
