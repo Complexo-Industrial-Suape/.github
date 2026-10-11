@@ -68,7 +68,7 @@ O desenvolvedor cuida do projeto e da documentação. A infraestrutura cuida do 
 
 Todo sistema desenvolvido por Suape usa obrigatoriamente a splash screen oficial na abertura e logotipos vetorizados conforme as diretrizes da CCOM (Coordenadoria de Comunicação). Proibido Git Submodule e cópia integral do kit.
 
-[Ler: diretrizes da CCOM, splash screen obrigatória e integração](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/09-marca-e-identidade-visual.md)
+[Ler: diretrizes da CCOM, splash screen obrigatória e integração](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/09-marca-e-identidade-visual.md) · [Manual em PDF (Drive)](https://drive.google.com/file/d/154VjAL91h3ZSnVLfwki4QChXGyZjBlGW/view?usp=sharing)
 
 ---
 
