@@ -24,9 +24,9 @@ Todo desenvolvedor tem duas chaves SSH ed25519 (uma para entrar no GitHub, outra
 
 ### 2. Stack padrão
 
-Projetos novos usam Python 3.14 (Flask, FastAPI ou Django) no backend e React com Vite no frontend. Outra tecnologia exige justificativa no chamado.
+A stack padrão deve ser respeitada: Python 3.14 (FastAPI, Flask ou Django) no backend, React com Vite ou Astro no frontend e bancos leves (PostgreSQL, MongoDB). Estamos lidando com dinheiro público: o código precisa ser otimizado, enxuto e aproveitar a concorrência e o paralelismo do Python 3.14. Exceções exigem comprovação de restrição técnica no chamado.
 
-[Ler: qual framework usar e quando](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/02-stack-padrao.md)
+[Ler: diretrizes da stack, boas práticas e otimização](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/02-stack-padrao.md)
 
 ### 3. Repositório: org, nome e segredos
 
@@ -69,7 +69,7 @@ O desenvolvedor cuida do projeto e da documentação. A infraestrutura cuida do 
 ## Consulta rápida
 
 - Commits assinados com chave SSH, selo **Verified** no GitHub.
-- Stack: Python 3.14 e React com Vite.
+- Stack obrigatória: Python 3.14 (FastAPI/Flask/Django), React (Vite/Astro), bancos leves (PostgreSQL/MongoDB). Código otimizado para economizar recursos públicos.
 - Repositório em kebab-case, na org, sem segredo.
 - Sem documentação, sem ambiente.
 - `feature/*` → `dev` → `hml` → `main`, sempre por PR.

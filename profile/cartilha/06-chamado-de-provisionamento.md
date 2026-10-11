@@ -33,7 +33,8 @@ Assunto: Provisionamento de ambiente GCP - <nome-do-repositório>
    - Impacto se ficar fora do ar por 1 hora:
 
 4. Técnica
-   - Stack: ( ) padrão (Python 3.14 + Flask/FastAPI/Django, React/Vite)  ( ) outra, justificativa:
+   - Stack: ( ) padrão (Python 3.14 + FastAPI/Flask/Django, React c/ Vite ou Astro, banco PostgreSQL/MongoDB)
+   - Se outra stack, comprovação de restrição técnica:
    - Partes publicáveis (API, frontend, job) e a pasta de cada uma:
    - Banco de dados: ( ) nenhum  ( ) PostgreSQL  ( ) MongoDB  ( ) outro:
    - Volume de dados estimado:
