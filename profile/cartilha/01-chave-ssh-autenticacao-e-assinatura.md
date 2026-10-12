@@ -2,13 +2,15 @@
 
 [← Voltar ao catálogo da cartilha](../README.md)
 
-**Obrigatório para todo desenvolvedor.** Você usa chaves SSH para duas coisas: entrar no GitHub (`git clone`, `git push`) e assinar cada commit que faz. O GitHub marca o commit assinado com o selo **Verified**. Sem o selo, ninguém consegue afirmar que o commit é seu.
+A regra aqui é direta: sem assinatura, o commit não entra.
 
-## Por que isso é obrigatório
+Você usa chaves SSH para duas funções distintas: autenticação no GitHub (`git clone`, `git push`) e assinatura criptográfica de cada alteração. O GitHub valida a chave e adiciona o selo **Verified** ao lado do commit. Sem esse selo, não temos garantia de autoria.
 
-- **Autoria comprovada.** Nome e e-mail do commit são texto livre: qualquer pessoa pode commitar como você. A assinatura prova que a chave foi usada.
-- **Código de produção.** Um merge na `main` publica em produção na hora. Precisamos saber de quem veio cada alteração.
-- **Sem senha nem token.** A chave SSH substitui senha e token de acesso na linha de comando.
+## Por que exigimos isso
+
+- **Autoria real:** Nome e e-mail no Git são apenas campos de texto editáveis. Qualquer um pode commitar usando o nome de outro colega. A assinatura com chave privada comprova quem realmente gerou o código.
+- **Código em produção:** Como o merge na `main` dispara deploy imediato no Cloud Run, precisamos rastrear com certeza absoluta quem enviou cada linha para o ar.
+- **Praticidade e segurança:** Chaves SSH eliminam senhas e tokens pessoais transitando em terminais ou scripts.
 
 ## Antes de começar
 

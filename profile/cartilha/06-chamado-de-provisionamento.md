@@ -58,7 +58,7 @@ Assunto: Provisionamento de ambiente GCP - <nome-do-repositório>
    ( ) Documentação C4 e Scan Systems no repositório
 ```
 
-As seções 2 e 3 do e-mail decidem quanto o projeto vai custar. Um sistema interno usado só em horário comercial pode desligar quando ninguém está usando e sai quase de graça. Um sistema público 24x7 precisa de instância ligada o tempo todo. Responda com sinceridade, porque superdimensionar custa dinheiro público.
+As respostas de público e disponibilidade definem o custo do ambiente. Um sistema interno usado só em horário comercial pode desligar quando fica ocioso e custa quase nada. Um sistema público que precise rodar 24x7 precisa de instâncias ligadas sem interrupção. Responda com precisão para não alocar recursos públicos sem necessidade.
 
 ## Depois do chamado
 

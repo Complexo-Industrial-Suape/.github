@@ -2,7 +2,7 @@
 
 [← Voltar ao catálogo da cartilha](../README.md)
 
-Depois que o ambiente é provisionado pela infraestrutura, o desenvolvimento segue um fluxo automatizado e contínuo. Não existem botões manuais de deploy nem esteiras fora do Git: **todo deploy é acionado pelo ciclo de branches e Pull Requests.**
+Depois que o ambiente é provisionado, o ciclo de deploy roda 100% pelo Git. Não existem botões manuais de publicação: **cada deploy é acionado pelo merge de Pull Requests.**
 
 ---
 

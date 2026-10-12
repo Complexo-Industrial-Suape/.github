@@ -27,7 +27,7 @@ Para eliminar atritos e retrabalho, os papéis e o fluxo de projetos novos funci
 | Cadastro e injeção de segredos no Secret Manager | Fornece nomes e valores | **Dono exclusivo** |
 | Correção de falhas e pendências apontadas em issues | **Dono** | *Não interfere no código* |
 
-> **Princípio de isolamento:** A infraestrutura nunca altera regras de negócio, lógica de endpoints ou arquivos de código da aplicação. Se um repositório apresentar falha de containerização, segredos expostos ou ausência de documentação, a infraestrutura abre issues no GitHub detalhando o problema e devolve a tarefa para o desenvolvedor resolver.
+> A infraestrutura não altera regras de negócio nem edita código da aplicação. Se o repositório tiver problemas de contêiner, segredos expostos ou falta de documentação, abrimos issues no GitHub e devolvemos o chamado para o desenvolvedor corrigir.
 
 ---
 

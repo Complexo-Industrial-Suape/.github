@@ -2,7 +2,7 @@
 
 [← Voltar ao catálogo da cartilha](../README.md)
 
-A identidade visual é patrimônio público e institucional do Complexo Industrial Portuário de Suape. Todo sistema desenvolvido pela Coordenadoria de Inovação e hospedado no Google Cloud deve seguir com fidelidade absoluta as diretrizes estabelecidas pela **CCOM (Coordenadoria de Comunicação)**, consolidadas no [Manual de Identidade Visual de Suape (PDF oficial no Google Drive)](https://drive.google.com/file/d/154VjAL91h3ZSnVLfwki4QChXGyZjBlGW/view?usp=sharing) e implementadas no repositório [suape-brand](https://github.com/Complexo-Industrial-Suape/suape-brand).
+Todo sistema desenvolvido pela Coordenadoria de Inovação e hospedado no Google Cloud precisa seguir as diretrizes da **CCOM (Coordenadoria de Comunicação)**. As normas completas estão no [Manual de Identidade Visual de Suape (PDF oficial no Google Drive)](https://drive.google.com/file/d/154VjAL91h3ZSnVLfwki4QChXGyZjBlGW/view?usp=sharing) e os arquivos prontos no repositório [suape-brand](https://github.com/Complexo-Industrial-Suape/suape-brand).
 
 ---
 

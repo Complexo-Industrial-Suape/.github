@@ -2,13 +2,13 @@
 
 Coordenadoria de Tecnologia da Informação e Comunicação (CTIC) · versão 3.0 · outubro de 2026
 
-Esta cartilha vale para quem desenvolve na Coordenadoria de Inovação e para todo projeto da org [Complexo-Industrial-Suape](https://github.com/Complexo-Industrial-Suape) que vai rodar no Google Cloud.
+Esta cartilha é o guia de desenvolvimento da Coordenadoria de Inovação para qualquer projeto da org [Complexo-Industrial-Suape](https://github.com/Complexo-Industrial-Suape) que vá rodar no Google Cloud.
 
-A cartilha é um **catálogo**: cada item traz um resumo e um link para o documento que explica o assunto por inteiro. Leia o resumo para saber o que se espera de você e abra o documento quando precisar fazer.
+Ela funciona como um catálogo prático. Cada item abaixo resume uma obrigação técnica e aponta para o documento com o passo a passo completo.
 
-> **Projeto sem documentação não recebe ambiente no GCP. Não há exceção.**
+> **Sem documentação, o projeto não ganha ambiente no GCP. Não há exceção.**
 >
-> **Commit sem assinatura não é aceito.** Todo desenvolvedor assina os commits com chave SSH.
+> **Commit sem assinatura não entra em produção.** Todo desenvolvedor precisa assinar commits com chave SSH.
 
 ---
 
@@ -16,86 +16,84 @@ A cartilha é um **catálogo**: cada item traz um resumo e um link para o docume
 
 ### 1. Autenticação e assinatura com chave SSH
 
-Todo desenvolvedor tem duas chaves SSH ed25519 (uma para entrar no GitHub, outra para assinar commits), cadastradas na conta do GitHub, e todo commit que ele publica aparece com o selo **Verified**. A chave privada é pessoal e nunca sai da sua máquina.
+Você precisa de duas chaves SSH ed25519 cadastradas no GitHub: uma para push/pull e outra exclusiva para assinar commits. Todo commit publicado precisa exibir o selo **Verified**. Chave privada nunca sai da sua máquina.
 
-**Obrigatório a partir desta versão.** Quem ainda não tem as chaves configura antes do próximo commit.
-
-[Ler o guia: gerar, cadastrar e testar as chaves](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/01-chave-ssh-autenticacao-e-assinatura.md)
+[Guia: gerar, cadastrar e testar as chaves](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/01-chave-ssh-autenticacao-e-assinatura.md)
 
 ### 2. Stack padrão
 
-A stack padrão deve ser respeitada: Python 3.14 (FastAPI, Flask ou Django) no backend, React com Vite ou Astro no frontend e bancos leves (PostgreSQL, MongoDB). Estamos lidando com dinheiro público: o código precisa ser otimizado, enxuto e aproveitar a concorrência e o paralelismo do Python 3.14. Exceções exigem comprovação de restrição técnica no chamado.
+Trabalhamos com Python 3.14 (FastAPI, Flask ou Django) no backend e React com Vite ou Astro no frontend. Bancos leves: PostgreSQL ou MongoDB. Como lidamos com verba pública, o código precisa ser enxuto, sem vazamento de memória e aproveitando o paralelismo do Python 3.14. Exceção exige justificativa técnica no chamado.
 
-[Ler: diretrizes da stack, boas práticas e otimização](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/02-stack-padrao.md)
+[Diretrizes da stack, boas práticas e otimização](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/02-stack-padrao.md)
 
 ### 3. Repositório: org, nome e segredos
 
-O repositório fica na org Complexo-Industrial-Suape, com nome em kebab-case, código do MVP na `main`, nenhum segredo commitado, assets da marca copiados para o próprio projeto e commits assinados.
+Todo repositório fica na org Complexo-Industrial-Suape, com nome em kebab-case, código inicial na branch `main` e zero segredos commitados. Assets da marca ficam copiados no próprio projeto, e os commits precisam estar assinados.
 
-[Ler: checklist do repositório](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/03-repositorio.md)
+[Checklist de repositório e convenções Git](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/03-repositorio.md)
 
 ### 4. Pronto para o GCP
 
-Cada parte publicável tem `Dockerfile`, escuta na porta `PORT`, lê toda a configuração de variáveis de ambiente, expõe um endpoint de saúde, tem testes que rodam com um comando e não depende de outro provedor de nuvem nem de dependência com vulnerabilidade alta ou crítica.
+Toda parte publicável precisa de Dockerfile, escutar na porta `PORT`, carregar configuração apenas por variáveis de ambiente, responder em rota de health check e ter testes rodando por comando único. Sem dependência oculta de outra nuvem e sem pacotes com vulnerabilidade alta ou crítica.
 
-[Ler: checklist técnico](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/04-pronto-para-o-gcp.md)
+[Checklist técnico para Cloud Run e contêineres](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/04-pronto-para-o-gcp.md)
 
 ### 5. Documentação: C4 e Scan Systems
 
-O repositório traz `README.md`, os diagramas C4 e o relatório do Scan Systems, gerados com as skills `/c4-architecture` e `/scan-systems`. Documentação ausente ou incompleta bloqueia o provisionamento.
+Repositório pronto traz `README.md`, diagramas C4 (Contexto e Contêineres em Mermaid) e o relatório do Scan Systems gerados pelas skills oficiais (`/c4-architecture` e `/scan-systems`). Documentação ausente ou incompleta trava o provisionamento.
 
-[Ler: arquivos exigidos e regras de escrita](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/05-documentacao.md)
+[Arquivos obrigatórios, regras de escrita e skills](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/05-documentacao.md)
 
 ### 6. Chamado de provisionamento
 
-O pedido de ambiente é um e-mail para a infraestrutura com o assunto `Provisionamento de ambiente GCP - <repositório>`. As respostas sobre público, disponibilidade e prazo definem o tamanho, e portanto o custo, do ambiente.
+O pedido de ambiente é feito por e-mail para a infraestrutura com o assunto `Provisionamento de ambiente GCP - <repositório>`. As respostas sobre público, horários e tolerância a quedas definem o tamanho das máquinas e o custo da nuvem.
 
-[Ler: modelo do e-mail e o que acontece depois](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/06-chamado-de-provisionamento.md)
+[Modelo do e-mail e etapas pós-chamado](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/06-chamado-de-provisionamento.md)
 
 ### 7. Fluxo de trabalho e deploy
 
-Cada branch publica no seu ambiente: `dev` em dev, `hml` em hml e `main` em **produção**. O caminho é sempre `feature/*` → `dev` → `hml` → `main`, por PR. Não existe push direto em `main` nem deploy manual.
+Cada branch entrega direto no seu ambiente: `dev` publica em desenvolvimento, `hml` em homologação e `main` em produção. O fluxo é sempre `feature/*` → `dev` → `hml` → `main`, exclusivamente por Pull Request. Nada de push direto na `main` e nada de deploy manual no console.
 
-[Ler: regras, acompanhamento do deploy, falhas e hotfix](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/07-fluxo-de-trabalho-e-deploy.md)
+[Regras de PR, esteira do Cloud Build, falhas e hotfix](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/07-fluxo-de-trabalho-e-deploy.md)
 
 ### 8. Papéis e caminho de um projeto novo
 
-O desenvolvedor cuida do projeto e da documentação. A infraestrutura cuida do ambiente e do pipeline e não mexe em regra de negócio.
+Desenvolvedor cuida das regras de negócio, do código e da documentação técnica. Infraestrutura cuida dos ambientes, segredos e pipelines, sem interferir na lógica da aplicação.
 
-[Ler: quem faz o quê e as etapas de um projeto novo](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/08-papeis-e-caminho-do-projeto.md)
+[Divisão de responsabilidades e ciclo do projeto](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/08-papeis-e-caminho-do-projeto.md)
 
 ### 9. Marca e identidade visual (Suape Brand Kit)
 
-Todo sistema desenvolvido por Suape usa obrigatoriamente a splash screen oficial na abertura e logotipos vetorizados conforme as diretrizes da CCOM (Coordenadoria de Comunicação). Proibido Git Submodule e cópia integral do kit.
+Todo sistema de Suape precisa exibir a splash screen oficial na abertura e respeitar os logotipos vetorizados conforme as normas da CCOM. É proibido usar Git Submodule e proibido commitar o kit inteiro no repositório.
 
-[Ler: diretrizes da CCOM, splash screen obrigatória e integração](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/09-marca-e-identidade-visual.md) · [Manual em PDF (Drive)](https://drive.google.com/file/d/154VjAL91h3ZSnVLfwki4QChXGyZjBlGW/view?usp=sharing)
+[Diretrizes da CCOM, splash screen e integração](https://github.com/Complexo-Industrial-Suape/.github/blob/main/profile/cartilha/09-marca-e-identidade-visual.md) · [Manual em PDF (Drive)](https://drive.google.com/file/d/154VjAL91h3ZSnVLfwki4QChXGyZjBlGW/view?usp=sharing)
 
 ---
 
 ## Consulta rápida
 
-- Commits assinados com chave SSH, selo **Verified** no GitHub.
-- Stack obrigatória: Python 3.14 (FastAPI/Flask/Django), React (Vite/Astro), bancos leves (PostgreSQL/MongoDB). Código otimizado para economizar recursos públicos.
-- Repositório em kebab-case, na org, sem segredo.
-- Splash screen oficial obrigatória em todos os sistemas e logos da CCOM.
-- Sem documentação, sem ambiente.
-- `feature/*` → `dev` → `hml` → `main`, sempre por PR.
-- Nunca: push direto em `main`, segredo no código, deploy manual, alteração no `cloudbuild.yaml`.
+- Commits com chave SSH e selo Verified no GitHub.
+- Stack oficial: Python 3.14 (FastAPI, Flask ou Django), React (Vite ou Astro) e bancos leves (PostgreSQL, MongoDB).
+- Repositório em kebab-case, dentro da org, sem credenciais commitadas.
+- Splash screen oficial obrigatória na abertura de todo sistema.
+- Sem documentação técnica aprovada, o ambiente não é criado.
+- Fluxo contínuo: `feature/*` → `dev` → `hml` → `main`, sempre via PR.
+- Proibido: push direto na `main`, segredos no código, deploy manual e editar o `cloudbuild.yaml`.
 
 ---
 
 ## Contato
 
-| Assunto | Como |
+| Assunto | Canal |
 |---|---|
-| Ambiente novo no GCP | E-mail para raulsilva@suape.pe.gov.br com o assunto `Provisionamento de ambiente GCP - <repositório>` |
-| Deploy com falha, segredos, permissões, mudança no pipeline | E-mail para raulsilva@suape.pe.gov.br com o link do build |
-| Acesso ao GitHub ou ao AGY | E-mail para raulsilva@suape.pe.gov.br |
-| Regra de negócio do projeto | Desenvolvedor responsável pelo projeto |
+| Novo ambiente no GCP | E-mail para raulsilva@suape.pe.gov.br com assunto `Provisionamento de ambiente GCP - <repositório>` |
+| Falhas de deploy, segredos, permissões | E-mail para raulsilva@suape.pe.gov.br com o link do build |
+| Acessos ao GitHub ou AGY | E-mail para raulsilva@suape.pe.gov.br |
+| Dúvidas sobre o produto e regras de negócio | Fale com o desenvolvedor responsável pelo projeto |
 
 ---
 
-Raul César
-Coordenadoria de Tecnologia da Informação e Comunicação (CTIC)
-Complexo Industrial Portuário de Suape
+Raul César  
+Coordenadoria de Tecnologia da Informação e Comunicação (CTIC)  
+Complexo Industrial Portuário de Suape  
 raulsilva@suape.pe.gov.br
